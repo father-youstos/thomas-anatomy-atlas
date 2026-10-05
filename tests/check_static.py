@@ -1,7 +1,7 @@
 from pathlib import Path
 import json,re,struct
 root=Path(__file__).resolve().parent.parent
-html=(root/'index.html').read_text(); app=(root/'app.js').read_text()
+html=(root/'index.html').read_text(); app=(root/'app.js').read_text()+(root/'foundation.mjs').read_text()
 ids=re.findall(r'\bid="([^"]+)"',html)
 assert len(ids)==len(set(ids)), 'Duplicate element IDs'
 missing=set(re.findall(r"\$\('([^']+)'\)",app))-set(ids)

@@ -50,5 +50,6 @@
   "./vendor/examples/jsm/libs/draco/gltf/draco_wasm_wrapper.js",
   "./vendor/examples/jsm/loaders/DRACOLoader.js",
   "./vendor/examples/jsm/loaders/GLTFLoader.js",
-  "./vendor/examples/jsm/utils/BufferGeometryUtils.js"
+  "./vendor/examples/jsm/utils/BufferGeometryUtils.js",
+  "foundation.mjs"
 ]

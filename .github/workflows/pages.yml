@@ -23,7 +23,8 @@ jobs:
         run: |
           node --check app.js
           node --check sw.js
-          node --test tests/state.test.mjs
+          node --check foundation.mjs
+          node --test tests/*.test.mjs
           python3 tests/check_static.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
