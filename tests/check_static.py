@@ -7,10 +7,10 @@ assert len(ids)==len(set(ids)), 'Duplicate element IDs'
 missing=set(re.findall(r"\$\('([^']+)'\)",app))-set(ids)
 assert not missing, f'Missing UI elements: {missing}'
 for path in re.findall(r'(?:src|href)="([^"#]+)"',html):
- if not path.startswith(('http','data:')):assert (root/path).exists(),f'Missing local file: {path}'
+ if not path.startswith(('http','data:')):assert (root/path.split("?")[0]).exists(),f'Missing local file: {path}'
 paths=json.loads((root/'offline-assets.json').read_text())
 assert isinstance(paths,list) and len(paths)==len(set(paths))
-for path in paths:assert (root/path).is_file(),f'Missing offline file: {path}'
+for path in paths:assert (root/path.split("?")[0]).is_file(),f'Missing offline file: {path}'
 for path in root.rglob('*.glb'):
  raw=path.read_bytes();assert raw[:4]==b'glTF';assert struct.unpack_from('<I',raw,8)[0]==len(raw)
  size=struct.unpack_from('<I',raw,12)[0];model=json.loads(raw[20:20+size]);assert model.get('meshes'),f'No geometry: {path}'

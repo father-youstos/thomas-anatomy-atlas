@@ -53,5 +53,7 @@
   "./vendor/examples/jsm/utils/BufferGeometryUtils.js",
   "foundation.mjs",
   "software-renderer.mjs",
-  "anatomy-view.mjs"
+  "anatomy-view.mjs",
+  "style.css?v=4",
+  "app.js?v=4"
 ]
