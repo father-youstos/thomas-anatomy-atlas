@@ -1,0 +1,36 @@
+name: Deploy anatomy atlas to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validate static project
+        run: |
+          node --check app.js
+          node --check sw.js
+          node --test tests/state.test.mjs
+          python3 tests/check_static.py
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload static files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
