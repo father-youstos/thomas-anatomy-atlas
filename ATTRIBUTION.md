@@ -9,3 +9,5 @@ Sources: https://anatomytool.org/open3dmodel-create ; https://lifesciencedb.jp/b
 See assets/THIRD_PARTY_NOTICES.md and licenses/ for accompanying license texts.
 
 Three.js: MIT, see vendor/LICENSE. Draco: Apache 2.0, see licenses/. Application authored for Thomas. Arabic pectoral-girdle study notes are paraphrases based on OpenStax Anatomy and Physiology 2e, section 8.1 (CC BY 4.0).
+
+Upper/lower limb and pelvic landmark names and brief study descriptions reference OpenStax Anatomy and Physiology 2e, sections 8.2, 8.3 and 8.4 (CC BY 4.0). Labels are paraphrased; marker coordinates are our approximate educational annotations, not coordinates supplied or endorsed by OpenStax. Humerus seed coordinates are from the existing paulvanmetre model metadata; they too are approximate.

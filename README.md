@@ -86,3 +86,11 @@ python3 tests/check_static.py
 اقرأ `ATTRIBUTION.md` و`assets/THIRD_PARTY_NOTICES.md` ومجلد `licenses`. تراخيص ShareAlike تخص النماذج ومشتقاتها؛ حافظ على الإسناد والتراخيص عند إعادة توزيع المشروع.
 
 وثائق النشر الرسمية: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+
+## Atlas 03 — body regions and practical pins
+
+Separate skull, trunk, thorax, abdomen, pelvis, shoulder girdle, upper limb, pelvic girdle, lower limb and spine views. Upper and lower limbs include subregions and a side selector. Abdomen opens the available organ layer; it does not claim a complete abdominal wall or pelvic viscera.
+
+43 approximate surface markers across existing detailed upper-limb bones and overview femur, tibia, fibula and patella. Lower markers use the actual inspected overview mesh coordinates and work on mirrored counterparts. These positions are not professionally reviewed. The catalogue explicitly separates unplaced landmarks; no marker is manufactured for a missing feature. Pin recall hides names until revealed; pronunciation is available.
+
+The lower-limb overview remains low polygon (right femur: 505 vertices). This update does not claim 16K textures or commercial-atlas anatomical fidelity. Replacing the models and reviewing marker locations remain necessary.
