@@ -51,5 +51,7 @@
   "./vendor/examples/jsm/loaders/DRACOLoader.js",
   "./vendor/examples/jsm/loaders/GLTFLoader.js",
   "./vendor/examples/jsm/utils/BufferGeometryUtils.js",
-  "foundation.mjs"
+  "foundation.mjs",
+  "software-renderer.mjs",
+  "anatomy-view.mjs"
 ]
