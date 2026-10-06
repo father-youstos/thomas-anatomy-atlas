@@ -23,6 +23,7 @@ jobs:
         run: |
           python3 tests/test_asset_conversion.py
           python3 scripts/build_detailed_bones.py
+          python3 scripts/build_specimen.py
       - name: Validate static project
         run: |
           node --check app.js
