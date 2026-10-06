@@ -11,6 +11,7 @@ export function regionsFor(name,kind='bone'){
  if(/hip bone/.test(n))return ['pelvic','pelvis','trunk'];
  if(/sacrum|coccyx/.test(n))return ['spine','pelvis','trunk'];
  if(/lumbar/.test(n))return ['spine','abdomen','trunk'];
+ if(/cervical|atlas|axis/.test(n))return ['spine'];
  const r=regionOf(n);return r==='thorax'||r==='spine'?[r,'trunk']:[r];
 }
 export function subregionOf(name){const n=name.toLowerCase();if(/femur/.test(n))return 'thigh';if(/patella/.test(n))return 'knee';if(/tibia|fibula/.test(n))return 'leg';if(regionOf(n)==='lower')return 'foot';if(/humerus/.test(n))return 'arm';if(/radius|ulna/.test(n))return 'forearm';return 'hand';}

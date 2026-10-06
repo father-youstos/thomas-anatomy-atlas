@@ -1,5 +1,5 @@
-const CACHE='thomas-anatomy-v6';
-const SHELL=['./','./index.html','./style.css?v=6','./app.js?v=6','./state.mjs','./foundation.mjs','./software-renderer.mjs','./anatomy-view.mjs','./pin-catalog.mjs','./manifest.webmanifest','./icons/icon.svg','./offline-assets.json','./vendor/build/three.module.js','./vendor/build/three.core.js','./vendor/examples/jsm/controls/OrbitControls.js','./vendor/examples/jsm/loaders/GLTFLoader.js','./vendor/examples/jsm/loaders/DRACOLoader.js','./vendor/examples/jsm/utils/BufferGeometryUtils.js'];
+const CACHE='thomas-anatomy-v7';
+const SHELL=['./','./index.html','./style.css?v=7','./app.js?v=7','./state.mjs','./foundation.mjs','./software-renderer.mjs','./anatomy-view.mjs?v=7','./pin-catalog.mjs?v=7','./manifest.webmanifest','./icons/icon.svg','./offline-assets.json','./vendor/build/three.module.js','./vendor/build/three.core.js','./vendor/examples/jsm/controls/OrbitControls.js','./vendor/examples/jsm/loaders/GLTFLoader.js','./vendor/examples/jsm/loaders/DRACOLoader.js','./vendor/examples/jsm/utils/BufferGeometryUtils.js'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('thomas-anatomy-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
 self.addEventListener('fetch',event=>{const request=event.request;if(request.method!=='GET'||new URL(request.url).origin!==self.location.origin)return;

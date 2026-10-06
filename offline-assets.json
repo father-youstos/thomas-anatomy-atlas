@@ -54,7 +54,7 @@
   "foundation.mjs",
   "software-renderer.mjs",
   "anatomy-view.mjs",
-  "style.css?v=6",
-  "app.js?v=6",
-  "./pin-catalog.mjs"
+  "style.css?v=7",
+  "app.js?v=7",
+  "./pin-catalog.mjs?v=7"
 ]
