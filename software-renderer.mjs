@@ -3,8 +3,8 @@ import * as THREE from './vendor/build/three.module.js';
 // Painter sorting is less accurate for overlapping translucent surfaces.
 export class SoftwareRenderer {
  constructor(){this.domElement=document.createElement('canvas');this.ctx=this.domElement.getContext('2d',{alpha:true});if(!this.ctx)throw Error('Canvas unavailable');this.isSoftwareRenderer=true;this.ratio=1;this.signature='';}
- setPixelRatio(){this.ratio=1;}
- setSize(w,h){this.width=w;this.height=h;this.domElement.width=Math.round(w);this.domElement.height=Math.round(h);this.signature='';}
+ setPixelRatio(value){this.ratio=Math.min(value,2);this.signature="";}
+ setSize(w,h){this.width=w;this.height=h;this.domElement.width=Math.round(w*this.ratio);this.domElement.height=Math.round(h*this.ratio);this.domElement.style.width=w+"px";this.domElement.style.height=h+"px";this.signature='';}
  render(scene,camera){
   scene.updateMatrixWorld(true);camera.updateMatrixWorld(true);
   const meshes=[];scene.traverseVisible(o=>{if(o.isMesh&&o.geometry?.attributes.position)meshes.push(o);});
@@ -20,7 +20,7 @@ export class SoftwareRenderer {
     triangles.push([screen[A],screen[A+1],screen[B],screen[B+1],screen[C],screen[C+1],(screen[A+2]+screen[B+2]+screen[C+2])/3,`rgb(${Math.round(color.r*255*light)},${Math.round(color.g*255*light)},${Math.round(color.b*255*light)})`,material.opacity]);
    }
   }
-  triangles.sort((a,b)=>b[6]-a[6]);const ctx=this.ctx;ctx.clearRect(0,0,this.width,this.height);ctx.lineWidth=.45;
+  triangles.sort((a,b)=>b[6]-a[6]);const ctx=this.ctx;ctx.setTransform(this.ratio,0,0,this.ratio,0,0);ctx.clearRect(0,0,this.width,this.height);ctx.lineWidth=.45;
   for(const t of triangles){ctx.globalAlpha=t[8];ctx.fillStyle=t[7];ctx.strokeStyle=t[7];ctx.beginPath();ctx.moveTo(t[0],t[1]);ctx.lineTo(t[2],t[3]);ctx.lineTo(t[4],t[5]);ctx.closePath();ctx.fill();if(t[8]===1)ctx.stroke();}ctx.globalAlpha=1;
  }
 }
