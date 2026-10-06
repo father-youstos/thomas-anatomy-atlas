@@ -41,7 +41,7 @@
   "./shoulder/ulna_right.json",
   "./shoulder/ulnar_artery_right.glb",
   "./shoulder/ulnar_artery_right.json",
-  "./state.mjs",
+  "./state.mjs?v=8",
   "./style.css",
   "./vendor/build/three.core.js",
   "./vendor/build/three.module.js",
@@ -54,7 +54,8 @@
   "foundation.mjs",
   "software-renderer.mjs",
   "anatomy-view.mjs",
-  "style.css?v=7",
-  "app.js?v=7",
-  "./pin-catalog.mjs?v=7"
+  "style.css?v=8",
+  "app.js?v=8",
+  "./pin-catalog.mjs?v=8",
+  "./landmark-camera.mjs?v=8"
 ]
